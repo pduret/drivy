@@ -165,6 +165,19 @@ var rentalModifications = [{
   'pickupDate': '2015-12-05'
 }];
 
+function exo1()
+{
+	for (var i =0; i <3; i++)
+	{
+		var time = (new Date(rentals[i].returnDate).getDate() - new Date(rentals[i].pickupDate).getDate() + 1) * cars[i].pricePerDay;
+		var distance = rentals[i].distance * cars[i].pricePerKm;
+		rentals[i].price = time + distance;
+	}
+}
+
+exo1();
+
+
 console.log(cars);
 console.log(rentals);
 console.log(actors);
