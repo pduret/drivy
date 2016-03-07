@@ -165,13 +165,27 @@ var rentalModifications = [{
   'pickupDate': '2015-12-05'
 }];
 
+
+
 function exo1()
 {
 	for (var i =0; i <3; i++)
 	{
-		var time = (new Date(rentals[i].returnDate).getDate() - new Date(rentals[i].pickupDate).getDate() + 1) * cars[i].pricePerDay;
-		var distance = rentals[i].distance * cars[i].pricePerKm;
-		rentals[i].price = time + distance;
+		var time = (new Date(rentals[i].returnDate).getDate() - new Date(rentals[i].pickupDate).getDate() + 1);
+		var timeprice = time * cars[i].pricePerDay;
+		
+		//EXERCICE 2
+		if(time > 10)
+			timeprice = timeprice - timeprice/2;
+		else if(time > 4)
+			timeprice = timeprice - (timeprice/10)*3;
+		else if(time > 1)
+			timeprice = timeprice - timeprice/10;
+		//END EXERCICE 2
+		
+		var distanceprice = rentals[i].distance * cars[i].pricePerKm;
+		var total = timeprice + distanceprice;
+		rentals[i].price = total;
 	}
 }
 
