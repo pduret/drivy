@@ -171,21 +171,29 @@ function exo1()
 {
 	for (var i =0; i <3; i++)
 	{
+		//EXERCICE 1
 		var time = (new Date(rentals[i].returnDate).getDate() - new Date(rentals[i].pickupDate).getDate() + 1);
 		var timeprice = time * cars[i].pricePerDay;
 		
-		//EXERCICE 2
-		if(time > 10)
-			timeprice = timeprice - timeprice/2;
-		else if(time > 4)
-			timeprice = timeprice - (timeprice/10)*3;
-		else if(time > 1)
-			timeprice = timeprice - timeprice/10;
-		//END EXERCICE 2
+			//EXERCICE 2
+			if(time > 10)
+				timeprice = timeprice - timeprice/2;
+			else if(time > 4)
+				timeprice = timeprice - (timeprice/10)*3;
+			else if(time > 1)
+				timeprice = timeprice - timeprice/10;
+			//END EXERCICE 2
 		
 		var distanceprice = rentals[i].distance * cars[i].pricePerKm;
 		var total = timeprice + distanceprice;
 		rentals[i].price = total;
+		//END EXERCICE 1
+
+		//EXERCICE 3
+		var commission = rentals[i].price*0.3;
+		rentals[i].commission.insurance = commission/2;
+		rentals[i].commission.assistance = time;
+		rentals[i].commission.drivy = commission - commission/2 - time;
 	}
 }
 
