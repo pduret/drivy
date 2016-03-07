@@ -194,6 +194,16 @@ function exo1()
 		rentals[i].commission.insurance = commission/2;
 		rentals[i].commission.assistance = time;
 		rentals[i].commission.drivy = commission - commission/2 - time;
+		//END EXERICE 3
+
+		//EXERCICE 4
+		if(rentals[i].options.deductibleReduction == true)
+		{
+			rentals[i].price = rentals[i].price + (time*4);
+			rentals[i].commission.drivy += time*4;
+		}
+		//END EXERICE 4
+
 	}
 }
 
