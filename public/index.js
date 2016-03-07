@@ -207,7 +207,22 @@ function exo1()
 	}
 }
 
+function exo2()
+{
+	for (var i =0; i <3; i++)
+	{
+		
+			actors[i].payment[0].amount = rentals[i].price;
+			actors[i].payment[1].amount = rentals[i].price - rentals[i].price*0.3;
+			actors[i].payment[2].amount = rentals[i].commission.insurance;
+			actors[i].payment[3].amount = rentals[i].commission.assistance;
+			actors[i].payment[4].amount = rentals[i].commission.drivy + rentals[i].price*0.3 ;
+	}
+
+}
+
 exo1();
+exo2();
 
 
 console.log(cars);
